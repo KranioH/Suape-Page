@@ -7,3 +7,18 @@
 body {
   background-color: #ffffff;
 }
+
+@media (max-width: 1000px){
+
+  .menu-lateral {
+    width: 150px;
+  }
+
+  .hidden {
+    width: 60px;
+  }
+
+  .home {
+    background-color: red;
+  }
+}

@@ -3,6 +3,9 @@ import { BsPerson } from "react-icons/bs";
 
 import "../css/Header.css";
 
+// import chatgpt from '../assets/image/chat-gpt.png'
+import chatgpt from '../assets/image/chatgpt-icon.svg'
+
 const Header = () => {
   return (
     <div className="top">
@@ -17,6 +20,9 @@ const Header = () => {
         <div className="foto">
           <BsPerson />
         </div>
+        <button id="chatgpt">
+          <img src={chatgpt} alt="logo-chat-gpt" />
+        </button>
       </div>
     </div>
   );

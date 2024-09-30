@@ -84,3 +84,8 @@
   width: 100px;
   transition: all .2s;
 }
+
+.responsive{
+  position: fixed;
+  left: 0;
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   BsArrowRepeat,
   BsBarChartFill,
@@ -16,20 +16,32 @@ const MenuLateral = () => {
   const nave = document.querySelectorAll(".nave-link");
   const naveRef = useRef();
   const menuLateralRef = useRef();
-  const [clicado, setClicado] = useState(true);
-  const [visible, setVisible] = useState("menu-lateral hidden");
+  const [response, setResponse] = useState(false);
+  const [clicado, setClicado] = useState(false);
+  const [visible, setVisible] = useState("menu-lateral");
 
-  function remove() {
-  }
+  function remove() {}
   function addMarca(e) {
     nave.forEach((item) => item.classList.remove("atual"));
-    
+
     setTimeout(1000);
     e.classList.add("atual");
     // naveRef[e].current.classList.add("atual")
   }
 
-  function changeIcon() {}
+  // function changeScreen() {
+  //   if (window.innerWidth > 900 && window.innerWidth < 1000) {
+  //     setResponse(true);
+  //     setVisible("menu-lateral responsive");
+  //   } else {
+  //     setResponse(false);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   changeScreen();
+  // }),
+  //   [];
 
   function openMenu() {
     if (clicado) {
@@ -45,7 +57,11 @@ const MenuLateral = () => {
     <div className={visible} ref={menuLateralRef}>
       <div className="logo" onClick={openMenu}>
         {clicado ? (
-          <img style={{ width: "30px", marginBottom: '30px'}} src={logo} alt="" />
+          <img
+            style={{ width: "30px", marginBottom: "30px" }}
+            src={logo}
+            alt=""
+          />
         ) : (
           <img src={suape} alt="" />
         )}
@@ -112,7 +128,7 @@ const MenuLateral = () => {
           )}
         </Link>
       </div>
-      <p>{clicado ? 'v1.0' : 'versão alpha 1.0'}</p>
+      <p>{clicado ? "v1.0" : "versão alpha 1.0"}</p>
     </div>
   );
 };

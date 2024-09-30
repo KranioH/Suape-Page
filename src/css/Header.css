@@ -6,9 +6,10 @@
     border-bottom: 1px solid #000;
     display: flex;
     align-items: center;
+    position: relative;
 
     .title-header {
-        width: 80%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,9 +18,11 @@
 
     .user {
         display: grid;
-        grid-template-columns: 5fr 1fr;
+        grid-template-columns: 5fr 1fr 1fr;
         width: 30%;
-        justify-content: end;
+        position: absolute;
+        right: 0;
+        z-index: 10;
 
         .info-user {
             display: flex;
@@ -56,5 +59,25 @@
             justify-content: center;
             background-color: #d7d5d5;
         }
+
+        #chatgpt {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all .2s;
+
+            img {
+                width: 50px;
+                color: red;
+            }
+        }
+
+        #chatgpt:active{
+            transform: scale(.9);
+            /* scale: .9; */
+        }
+        
     }
 }
