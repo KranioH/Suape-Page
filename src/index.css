@@ -17,8 +17,10 @@ body {
   .hidden {
     width: 60px;
   }
-
+  
+  /*
   .home {
-    background-color: red;
+     background-color: red; 
   }
+  */
 }

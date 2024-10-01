@@ -73,6 +73,11 @@
       background-color: #ffffff;
       border-radius: 50px 0 0 50px;
     }
+
+    #config {
+      position: absolute;
+      bottom: 30px;
+    }
   }
 
   p {
@@ -88,4 +93,30 @@
 .responsive{
   position: fixed;
   left: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .logo {
+    img {
+      width: 100px;
+    }
+  }
+
+  .navegation {
+
+    .nave-link {
+      text-align: center;
+    }
+
+    .atual::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      width: 95%;
+      height: 40px;
+      background-color: #ffffff;
+      border-radius: 20px 0 0 20px;
+    }
+  }
 }

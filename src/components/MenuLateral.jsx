@@ -12,7 +12,7 @@ import logo from "../assets/image/logo.svg";
 
 import "../css/MenuLateral.css";
 
-const MenuLateral = () => {
+const MenuLateral = ({ tela }) => {
   const nave = document.querySelectorAll(".nave-link");
   const naveRef = useRef();
   const menuLateralRef = useRef();
@@ -20,7 +20,6 @@ const MenuLateral = () => {
   const [clicado, setClicado] = useState(false);
   const [visible, setVisible] = useState("menu-lateral");
 
-  function remove() {}
   function addMarca(e) {
     nave.forEach((item) => item.classList.remove("atual"));
 
@@ -62,8 +61,14 @@ const MenuLateral = () => {
             src={logo}
             alt=""
           />
-        ) : (
+        ) : tela ? (
           <img src={suape} alt="" />
+        ) : (
+          <img
+            style={{ width: "30px", marginBottom: "30px" }}
+            src={logo}
+            alt=""
+          />
         )}
       </div>
       <div className="navegation">
@@ -116,6 +121,7 @@ const MenuLateral = () => {
           )}
         </Link>
         <Link
+          id="config"
           ref={naveRef}
           onClick={(e) => addMarca(e.target)}
           className="nave-link"
@@ -128,7 +134,7 @@ const MenuLateral = () => {
           )}
         </Link>
       </div>
-      <p>{clicado ? "v1.0" : "versão alpha 1.0"}</p>
+      {/* <p>{clicado ? "v1.0" : "versão alpha 1.0"}</p> */}
     </div>
   );
 };
