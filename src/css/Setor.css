@@ -1,0 +1,31 @@
+.setor {
+    display: flex;
+    width: 100%;
+    height: 91vh;
+    padding: 10px;
+
+    ul {
+        width: 80px;
+        height: 400px;
+        background-color: transparent;
+        display: grid;
+        /* gap: ; */
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 5px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+        li:hover{
+            background-color: #399e52;
+            color: #fff;
+        }
+    }
+}

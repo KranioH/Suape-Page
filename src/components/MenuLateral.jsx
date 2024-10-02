@@ -16,22 +16,26 @@ const MenuLateral = ({ tela }) => {
   const nave = document.querySelectorAll(".nave-link");
   const naveRef = useRef();
   const menuLateralRef = useRef();
-  const [response, setResponse] = useState(false);
+  // const [response, setResponse] = useState(false);
   const [clicado, setClicado] = useState(false);
   const [visible, setVisible] = useState("menu-lateral");
 
-  function removerMarca() {
-    nave.forEach((item) => item.classList.remove("atual"));
-  }
+  // function removerMarca() {
+  //   nave.forEach((item) => item.classList.remove("atual"));
+  // }
 
   function addMarca(e) {
-    removerMarca()
-
+    // removerMarca()
+    nave.forEach((item) => {
+      item.classList.remove("atual")
+      console.log('removeu');
+    });
+    console.log("mudou");
+    
     // setTimeout(1000);
     e.classList.add("atual");
     // naveRef[e].current.classList.add("atual")
   }
-  
 
   // function changeScreen() {
   //   if (window.innerWidth > 900 && window.innerWidth < 1000) {
@@ -43,9 +47,38 @@ const MenuLateral = ({ tela }) => {
   // }
 
   // useEffect(() => {
-  //   changeScreen();
-  // }),
-  //   [];
+  //   function addMarca(e) {
+  //     // removerMarca()
+  //     nave.forEach((item) => {
+  //       item.classList.remove("atual")
+  //       console.log('removeu');
+  //     });
+
+  //     console.log("mudou");
+      
+  //     // setTimeout(1000);
+  //     e.classList.add("atual");
+  //     // naveRef[e].current.classList.add("atual")
+  //   }
+
+  //  return addMarca()
+  //}),
+  //  [];
+
+    // useEffect(() => {
+    //   nave.forEach((item) => {
+    //     item.addEventListener('click', ()=>{
+
+    //     })
+    //     item.classList.remove("atual")
+    //     console.log('removeu');
+    //   });
+    
+    //   return (e) => {
+    //     e.classList.add("atual");
+    //   }
+    // }, [])
+    
 
   function openMenu() {
     if (clicado) {
@@ -53,7 +86,6 @@ const MenuLateral = ({ tela }) => {
     } else {
       setVisible("menu-lateral hidden");
     }
-
     setClicado(!clicado);
   }
 
@@ -76,8 +108,7 @@ const MenuLateral = ({ tela }) => {
       </div>
       <div className="navegation">
         <Link
-          ref={naveRef}
-          onClick={(e) => addMarca(e.target)}
+          onClick={(e) => addMarca(e.currentTarget)}
           className="nave-link atual"
           to="/"
         >
@@ -88,7 +119,6 @@ const MenuLateral = ({ tela }) => {
           )}
         </Link>
         <Link
-          ref={naveRef}
           onClick={(e) => addMarca(e.target)}
           className="nave-link"
           to="/analytic"
@@ -96,11 +126,10 @@ const MenuLateral = ({ tela }) => {
           {clicado ? (
             <BsBarChartFill style={{ pointerEvents: "none" }} />
           ) : (
-             <span style={{ pointerEvents: "none" }}>Analytics</span>
+             <span style={{ pointerEvents: "none" }}>Setor</span>
           )}
         </Link>
-        <Link
-          ref={naveRef}
+        {/* <Link
           onClick={(e) => addMarca(e.target)}
           className="nave-link"
           to="/processos"
@@ -110,9 +139,8 @@ const MenuLateral = ({ tela }) => {
           ) : (
              <span style={{ pointerEvents: "none" }}>Processos abertos</span>
           )}
-        </Link>
+        </Link> */}
         <Link
-          ref={naveRef}
           onClick={(e) => addMarca(e.target)}
           className="nave-link"
           to="/historico"
@@ -125,7 +153,6 @@ const MenuLateral = ({ tela }) => {
         </Link>
         <Link
           id="config"
-          ref={naveRef}
           onClick={(e) => addMarca(e.target)}
           className="nave-link"
           to="/config"
