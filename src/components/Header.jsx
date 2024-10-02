@@ -4,18 +4,16 @@ import { BsPerson } from "react-icons/bs";
 import "../css/Header.css";
 
 // import chatgpt from '../assets/image/chat-gpt.png'
-import chatgpt from '../assets/image/chatgpt-icon.svg'
-import Suape from '../assets/image/SUAPE.png'
+import chatgpt from "../assets/image/chatgpt-icon.svg";
+import Suape from "../assets/image/SUAPE.png";
 
-const Header = ({tela}) => { 
+const Header = () => {
+  const [menuChat, setMenuChat] = useState(false);
 
   return (
     <div className="top">
       <div className="title-header">
-        {tela 
-        ? (<img src={Suape}/>)
-        : (<h1>SUAPE</h1>)
-       }
+        <img src={Suape} />
       </div>
       <div className="user">
         <div className="info-user">
@@ -25,9 +23,10 @@ const Header = ({tela}) => {
         <div className="foto">
           <BsPerson />
         </div>
-        <button id="chatgpt">
+        <button id="chatgpt" onClick={()=> setMenuChat(!menuChat)}>
           <img src={chatgpt} alt="logo-chat-gpt" />
         </button>
+        {menuChat && <div className="area-chatgpt"></div>}
       </div>
     </div>
   );

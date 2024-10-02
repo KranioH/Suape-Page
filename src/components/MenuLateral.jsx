@@ -20,13 +20,18 @@ const MenuLateral = ({ tela }) => {
   const [clicado, setClicado] = useState(false);
   const [visible, setVisible] = useState("menu-lateral");
 
-  function addMarca(e) {
+  function removerMarca() {
     nave.forEach((item) => item.classList.remove("atual"));
+  }
 
-    setTimeout(1000);
+  function addMarca(e) {
+    removerMarca()
+
+    // setTimeout(1000);
     e.classList.add("atual");
     // naveRef[e].current.classList.add("atual")
   }
+  
 
   // function changeScreen() {
   //   if (window.innerWidth > 900 && window.innerWidth < 1000) {
@@ -61,12 +66,10 @@ const MenuLateral = ({ tela }) => {
             src={logo}
             alt=""
           />
-        ) : tela ? (
-          <img src={suape} alt="" />
         ) : (
           <img
-            style={{ width: "30px", marginBottom: "30px" }}
-            src={logo}
+            style={{ width: "130px", marginBottom: "30px" }}
+            src={suape}
             alt=""
           />
         )}
@@ -75,13 +78,13 @@ const MenuLateral = ({ tela }) => {
         <Link
           ref={naveRef}
           onClick={(e) => addMarca(e.target)}
-          className="nave-link"
+          className="nave-link atual"
           to="/"
         >
           {clicado ? (
             <BsGridFill style={{ pointerEvents: "none" }} />
           ) : (
-            "Dashbord"
+            <span style={{ pointerEvents: "none" }}>Dashbord</span>
           )}
         </Link>
         <Link
@@ -93,7 +96,7 @@ const MenuLateral = ({ tela }) => {
           {clicado ? (
             <BsBarChartFill style={{ pointerEvents: "none" }} />
           ) : (
-            "Analytics"
+             <span style={{ pointerEvents: "none" }}>Analytics</span>
           )}
         </Link>
         <Link
@@ -105,7 +108,7 @@ const MenuLateral = ({ tela }) => {
           {clicado ? (
             <BsArrowRepeat style={{ pointerEvents: "none" }} />
           ) : (
-            "Processos abertos"
+             <span style={{ pointerEvents: "none" }}>Processos abertos</span>
           )}
         </Link>
         <Link
@@ -117,7 +120,7 @@ const MenuLateral = ({ tela }) => {
           {clicado ? (
             <BsClockHistory style={{ pointerEvents: "none" }} />
           ) : (
-            "Históricos"
+             <span style={{ pointerEvents: "none" }}>Históricos</span>
           )}
         </Link>
         <Link
@@ -130,7 +133,8 @@ const MenuLateral = ({ tela }) => {
           {clicado ? (
             <BsGearFill style={{ pointerEvents: "none" }} />
           ) : (
-            "Configuração"
+             <span style={{ pointerEvents: "none" }}>Configuração</span>
+    
           )}
         </Link>
       </div>

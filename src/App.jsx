@@ -13,24 +13,24 @@ import Header from "./components/header.jsx";
 function App() {
   const [tela, setTela] = useState(false);
 
-  function screean() {
-    if (window.innerWidth < 1000) {
-      setTela(false);
-    } else {
-      setTela(true);
-    }
-  }
+  // function screean() {
+  //   if (window.innerWidth < 1000) {
+  //     setTela(false);
+  //   } else {
+  //     setTela(true);
+  //   }
+  // }
 
-  useEffect(() => {
-    window.addEventListener("resize", screean);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", screean);
+  // }, []);
 
   return (
     <div className="container">
       <Router>
         <MenuLateral tela={tela} />
         <main>
-          <Header tela={tela} />
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/analytic" element={<Analytic />} />
