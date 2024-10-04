@@ -11,7 +11,6 @@ const Home = () => {
         <label id="upload2" htmlFor="input-upload">
           <FaUpload />
         </label>
-
         {/* <button id="upload"></button> */}
       </form>
     </div>
