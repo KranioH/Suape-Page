@@ -1,18 +1,19 @@
 import "../css/Home.css";
-import { FaUpload } from "react-icons/fa";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import MenuLateral from "../components/MenuLateral";
+import Header from "../components/header.jsx";
 
 const Home = () => {
+  const [tela, setTela] = useState(false);
+
   return (
     <div className="home">
-      <div className="main"></div>
-      <form className="area-input">
-        <label id="upload1" htmlFor="input-upload">Enviar arquivo</label>
-        <input type="file" id="input-upload" style={{display: 'none'}} />
-        <label id="upload2" htmlFor="input-upload">
-          <FaUpload />
-        </label>
-        {/* <button id="upload"></button> */}
-      </form>
+      <MenuLateral tela={tela} />
+      <main>
+        <Header />
+        <Outlet />
+      </main>
     </div>
   );
 };
